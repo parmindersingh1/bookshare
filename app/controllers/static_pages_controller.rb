@@ -64,6 +64,10 @@ class StaticPagesController < ApplicationController
   def membership_overview
     puts "---------------------------"
   end
+  
+  def membership_options
+    
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

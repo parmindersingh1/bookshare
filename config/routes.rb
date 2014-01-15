@@ -2,7 +2,8 @@ Bookshare::Application.routes.draw do
   
   resources :static_pages do
     collection do
-      get "/membership_overview", to: "static_pages#membership_overview", as: 'membership_overview'
+      get "/membership_overview", to: "static_pages#membership_overview"
+      get "/membership_options", to: "static_pages#membership_options"
     end
   end
 
