@@ -76,6 +76,16 @@ class StaticPagesController < ApplicationController
   def gift_memberships
     
   end
+  
+  
+  def search_book
+    
+    
+  end
+  
+  def search_author
+    
+  end
 
   def search_text
     puts "------#{params[:searchtxt]}"
