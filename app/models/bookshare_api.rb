@@ -30,7 +30,7 @@ class BookshareApi
   # end
   
   def self.full_text_search(query,limit)
-    get("/book/searchFTS/#{query}/page/1/limit/#{limit}/format/json",:query => {:limit => 10})
+    get("/book/searchFTS/#{query}/page/1/limit/#{limit}/format/json")
   end
  
   # def self.method_missing(method_id, *args)

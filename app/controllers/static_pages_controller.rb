@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   before_action :set_static_page, only: [:show, :edit, :update, :destroy]
-
+  require 'will_paginate/array'
   # GET /static_pages
   # GET /static_pages.json
   def index
@@ -83,7 +83,7 @@ class StaticPagesController < ApplicationController
     @response=BookshareApi.full_text_search(@search_txt,100)
     @result = JSON.parse(@response.body)
     # puts "-----#{@result.keys}"
-    @searched_result=@result['bookshare']['book']['list']['result']
+    @searched_result=(@result['bookshare']['book']['list']['result']).paginate(:page => params[:page],:per_page => 5)
     # respond_to do |format|
      # format.json { render :json => JSON.parse(@result) }
      # format.html { render  "search_text.html.erb"}

@@ -1,5 +1,6 @@
 $(document).ready(function(){
-	
+	// $("body").addClass("loading");
+
 });
 
 // $(document).on("click","#search-btn",function(){
@@ -8,3 +9,7 @@ $(document).ready(function(){
 		// alert(data);
 	// });
 // });
+
+$(document).on("click",".pagination a",function(){
+	$("body").addClass("loading");
+	});
