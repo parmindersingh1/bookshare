@@ -2,8 +2,7 @@ Bookshare::Application.routes.draw do
   
   resources :static_pages do
     collection do
-      get "/membership_overview", to: "static_pages#membership_overview"
-      get "/membership_options", to: "static_pages#membership_options"
+      get :membership_overview,:membership_options,:qualifications,:gift_memberships,:search_text
     end
   end
 

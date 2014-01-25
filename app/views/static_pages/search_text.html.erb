@@ -1,0 +1,21 @@
+  <div class="panel-heading"><h4>Search Result for "<%=@search_txt%>"</h4></div>
+<div class="panel-body">
+	
+	<%@searched_result.each do |result|%>
+	<h1><a href="#"><%=result["title"]%></a></h1>
+<p class="lead">
+	by
+	<%=result["author"][0]%>
+	<!-- <a href="index.php">Start Bootstrap</a> -->
+</p>
+<hr>
+<p>
+	<span class="glyphicon glyphicon-time"></span>
+	Posted on August 28, 2013 at 10:00 PM
+</p>
+
+<p><%=result["briefSynopsis"]%></p>
+
+<hr>
+<%end%>
+</div>

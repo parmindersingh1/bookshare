@@ -68,6 +68,28 @@ class StaticPagesController < ApplicationController
   def membership_options
     
   end
+  
+  def qualifications
+    
+  end
+  
+  def gift_memberships
+    
+  end
+
+  def search_text
+    puts "------#{params[:searchtxt]}"
+    @search_txt=params[:searchtxt]
+    @response=BookshareApi.full_text_search(@search_txt,100)
+    @result = JSON.parse(@response.body)
+    # puts "-----#{@result.keys}"
+    @searched_result=@result['bookshare']['book']['list']['result']
+    # respond_to do |format|
+     # format.json { render :json => JSON.parse(@result) }
+     # format.html { render  "search_text.html.erb"}
+   # end
+   
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
