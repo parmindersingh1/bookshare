@@ -8,41 +8,41 @@ class BookshareApi
   default_params :api_key => 'xew4s5nagrhf5g6rh8jh2x4j'
   format :json
  
-  # def self.get_all_stores
-    # get("/v1/stores")
-  # end
-#  
-  # def self.get_stores_by_zip(zip)
-    # get("/v1/stores(postalCode=#{zip})")
-  # end
-#  
-  # def self.get_stores_by_zip_and_distance(zip, distance)
-    # get("/v1/stores(area(#{zip},#{distance}))")
-  # end
-#  
-  # def self.get_product_by_sku(sku)
-    # get("/v1/products/#{sku}.xml")
-  # end
-#  
-  # def self.get_products(filter)
-    # response = get(URI.escape("/v1/products(#{filter})"))
-    # response["products"]["product"]
-  # end
+
+  def self.isbn_lookup(query)
+     get("/book/isbn/#{query}/format/json")
+  end
+  
+  
+  def self.book_id(query)
+     get("/book/id/#{query}/format/json")
+ end
+  
   
   def self.full_text_search(query,limit)
-    get("/book/searchFTS/#{query}/page/1/limit/#{limit}/format/json",:query => {:limit => 10})
+     get("/book/searchFTS/#{query}/page/1/limit/#{limit}/format/json" )
+  end
+
+  
+  def self.title_search(query,limit)
+      get("book/search/title/#{query}/page/1/limit/#{limit}/format/json" )
+  end
+     
+    
+  def self.author_search(query,limit)
+      get("book/search/author/#{query}/page/1/limit/#{limit}/format/json" )
   end
  
-  # def self.method_missing(method_id, *args)
-    # if match = /get_products_by_([_a-zA-Z]\w*)/.match(method_id.to_s)
-      # attribute_names = match.captures.last.split('_and_')
-#  
-      # request = ""
-      # attribute_names.each_with_index { |name, idx| request = request + name + "=" + args[idx] + (attribute_names.length-1 == idx ? "" : "&") }
-#  
-      # get_products(request)
-    # else
-      # super
-    # end
-  # end
+ def self.titleauthor_search(query,limit)
+    get("book/book/search/#{query}/page/1/limit/#{limit}/format/json" )
+ end
+ 
+ def self.datepublished_search(query,limit)
+     get("/book/search/since/#{query}/page/1/limit/#{limit}/format/json" )
+ end
+ 
+ def self.latest_browsed(query,limit)
+   get("book/latest/page/#{query}/page/1/limit/#{limit}/format/json")
+ end
+ 
 end
