@@ -45,4 +45,27 @@ class BookshareApi
    get("/book/latest/page/#{query}/page/1/limit/#{limit}/format/json")
  end
  
+ def self.popular_browsed(query,limit)
+   get("/book/popular/page/#{query}/page/1/limit/#{limit}/format/json")
+ end
+ 
+ def self.category_list(query,limit)
+   get("/book/reference/category/list/#{query}/page/1/limit/#{limit}/format/json")
+ end
+
+ def self.category_search(query,limit)
+    get("/book/search/category/#{query}/page/1/limit/#{limit}/format/json")
+ end
+
+def self.grade_list(query,limit)
+   get("/reference/grade/list/#{query}/page/1/limit/#{limit}/format/json")
+end
+ 
+ def self.grade_search(query,limit)
+   get("/book/search/grade/#{query}/page/1/limit/#{limit}/format/json")
+ end
+ 
+ def self.combinemultiple_search(query,limit)
+   get("/book/search/grade/#{query}/page/1/limit/#{limit}/format/json")
+ end
 end
