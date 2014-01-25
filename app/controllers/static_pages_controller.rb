@@ -79,12 +79,15 @@ class StaticPagesController < ApplicationController
   
   
   def search_book
-    
-    
+    puts "-----------#{params}"
+    @id=params[:id]
+    @response=BookshareApi.book_id(@id)
+    @result = JSON.parse(@response.body)
+    @book=@result["bookshare"]["book"]["metadata"]
   end
   
   def search_author
-    
+      puts "-----------#{params}"
   end
 
   def search_text
