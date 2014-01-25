@@ -25,16 +25,16 @@ class BookshareApi
 
   
   def self.title_search(query,limit)
-      get("book/search/title/#{query}/page/1/limit/#{limit}/format/json" )
+      get("/book/search/title/#{query}/page/1/limit/#{limit}/format/json" )
   end
      
     
   def self.author_search(query,limit)
-      get("book/search/author/#{query}/page/1/limit/#{limit}/format/json" )
+      get("/book/search/author/#{query}/page/1/limit/#{limit}/format/json" )
   end
  
  def self.titleauthor_search(query,limit)
-    get("book/book/search/#{query}/page/1/limit/#{limit}/format/json" )
+    get("/book/search/#{query}/page/1/limit/#{limit}/format/json" )
  end
  
  def self.datepublished_search(query,limit)
@@ -42,7 +42,7 @@ class BookshareApi
  end
  
  def self.latest_browsed(query,limit)
-   get("book/latest/page/#{query}/page/1/limit/#{limit}/format/json")
+   get("/book/latest/page/#{query}/page/1/limit/#{limit}/format/json")
  end
  
 end
